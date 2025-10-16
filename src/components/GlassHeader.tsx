@@ -6,9 +6,10 @@ export default function GlassHeader() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 10);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -26,13 +27,18 @@ export default function GlassHeader() {
           backgroundOpacity={0.1}
           saturation={1.2}
         >
-          <div className={`flex transition-all duration-500 ease-out ${
-            isScrolled ? 'justify-start' : 'justify-center'
-          }`}>
+          <div
+            className="flex transition-all duration-500 ease-out"
+            style={{
+              justifyContent: isScrolled ? 'flex-start' : 'center'
+            }}
+          >
             <h1
-              className={`text-2xl font-bold text-white tracking-tight py-2 transition-all duration-500 ease-out ${
-                isScrolled ? 'px-4' : 'px-0'
-              }`}
+              className="text-2xl font-bold text-white tracking-tight py-2 transition-all duration-500 ease-out"
+              style={{
+                paddingLeft: isScrolled ? '1rem' : '0',
+                paddingRight: isScrolled ? '1rem' : '0'
+              }}
             >
               JustBuild.it
             </h1>
