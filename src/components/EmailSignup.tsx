@@ -144,16 +144,42 @@ export default function EmailSignup() {
         }
 
         #sib-container .checkbox {
+          position: relative;
           width: 1.25rem;
           height: 1.25rem;
           border: 2px solid rgba(255, 255, 255, 0.3);
           border-radius: 0.25rem;
           background: rgba(255, 255, 255, 0.1);
+          flex-shrink: 0;
+        }
+
+        #sib-container .input_replaced {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
         }
 
         #sib-container .input_replaced:checked ~ .checkbox {
           background: rgba(255, 255, 255, 0.3);
           border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        #sib-container .input_replaced:checked ~ .checkbox::after {
+          content: '';
+          position: absolute;
+          display: block;
+          left: 0.35rem;
+          top: 0.15rem;
+          width: 0.4rem;
+          height: 0.7rem;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+
+        .g-recaptcha {
+          display: flex;
+          justify-content: center;
         }
 
         #sib-container .sib-form-block__button {
@@ -337,20 +363,12 @@ export default function EmailSignup() {
                     </div>
                   </div>
                   <div style={{padding: '8px 0'}}>
-                    <div className="sib-captcha sib-form-block">
-                      <div className="form__entry entry_block">
-                        <div className="form__label-row">
-                          <div
-                            className="g-recaptcha sib-visible-recaptcha"
-                            id="sib-captcha"
-                            data-sitekey="6LfEGuorAAAAAElSIgvmY-D3MxOwpqJ0erYswGnh"
-                            data-callback="handleCaptchaResponse"
-                            style={{direction: 'ltr'}}
-                          ></div>
-                        </div>
-                        <label className="entry__error entry__error--primary"></label>
-                      </div>
-                    </div>
+                    <div
+                      className="g-recaptcha"
+                      data-sitekey="6LfEGuorAAAAAElSIgvmY-D3MxOwpqJ0erYswGnh"
+                      data-callback="invisibleCaptchaCallback"
+                      data-size="invisible"
+                    ></div>
                   </div>
                   <div style={{padding: '8px 0'}}>
                     <div className="sib-form-block">
@@ -377,9 +395,11 @@ export default function EmailSignup() {
       </GlassSurface>
 
       <script dangerouslySetInnerHTML={{__html: `
-        function handleCaptchaResponse() {
-          var event = new Event('captchaChange');
-          document.getElementById('sib-captcha').dispatchEvent(event);
+        function invisibleCaptchaCallback() {
+          // Callback for invisible reCAPTCHA
+        }
+        function executeCaptcha() {
+          grecaptcha.execute();
         }
       `}} />
     </div>
