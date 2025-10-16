@@ -22,8 +22,8 @@ function App() {
           autoDemo={true}
           autoSpeed={0.5}
           autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
+          takeoverDuration={0.1}
+          autoResumeDelay={5000}
           autoRampDuration={0.6}
           dt={0.014}
           BFECC={true}
