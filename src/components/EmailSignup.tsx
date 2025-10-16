@@ -126,23 +126,26 @@ export default function EmailSignup() {
           width: 100%;
           padding: 0.875rem 1.5rem;
           border-radius: 0.75rem;
-          background: rgba(255, 255, 255, 0.2) !important;
+          background: linear-gradient(135deg, #5227FF 0%, #FF9FFC 100%) !important;
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.3) !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
           color: white !important;
           font-weight: 700 !important;
           font-size: 1rem !important;
           cursor: pointer;
-          transition: all 0.2s;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(82, 39, 255, 0.3);
         }
 
         #sib-container .sib-form-block__button:hover {
-          background: rgba(255, 255, 255, 0.3) !important;
-          transform: scale(1.02);
+          background: linear-gradient(135deg, #6837FF 0%, #FFB0FC 100%) !important;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(82, 39, 255, 0.4);
         }
 
         #sib-container .sib-form-block__button:active {
-          transform: scale(0.98);
+          transform: translateY(0);
+          box-shadow: 0 2px 10px rgba(82, 39, 255, 0.3);
         }
 
         .sib-form-message-panel {
