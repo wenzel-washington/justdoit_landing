@@ -62,14 +62,6 @@ function App() {
           </div>
         </section>
 
-        <section className="py-16 px-6">
-          <div className="max-w-2xl mx-auto text-center space-y-8">
-            <h3 className="text-3xl md:text-4xl font-bold">
-              Ready to stop overthinking?
-            </h3>
-            <EmailSignup />
-          </div>
-        </section>
         </div>
       </main>
 

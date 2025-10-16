@@ -1,4 +1,5 @@
 import { LucideIcon } from 'lucide-react';
+import GlassSurface from './GlassSurface';
 
 interface FeatureCardProps {
   icon: LucideIcon;
@@ -8,14 +9,27 @@ interface FeatureCardProps {
 
 export default function FeatureCard({ icon: Icon, title, description }: FeatureCardProps) {
   return (
-    <div className="group p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]">
-      <div className="flex flex-col items-center text-center gap-3">
-        <div className="p-3 rounded-full bg-white/10 group-hover:bg-white/20 transition-all duration-300">
-          <Icon className="w-6 h-6 text-white" />
+    <div className="group transition-all duration-300 hover:scale-[1.02]">
+      <GlassSurface
+        width="100%"
+        height="100%"
+        borderRadius={16}
+        brightness={50}
+        opacity={0.85}
+        blur={12}
+        backgroundOpacity={0.05}
+        saturation={1.1}
+      >
+        <div className="p-6">
+          <div className="flex flex-col items-center text-center gap-3">
+            <div className="p-3 rounded-full bg-white/10 group-hover:bg-white/20 transition-all duration-300">
+              <Icon className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="text-lg font-semibold text-white">{title}</h3>
+            <p className="text-sm text-white/70 leading-relaxed">{description}</p>
+          </div>
         </div>
-        <h3 className="text-lg font-semibold text-white">{title}</h3>
-        <p className="text-sm text-white/70 leading-relaxed">{description}</p>
-      </div>
+      </GlassSurface>
     </div>
   );
 }
