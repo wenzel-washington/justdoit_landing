@@ -24,7 +24,7 @@ export default function EmailSignup() {
     document.head.appendChild(link);
 
     const script1 = document.createElement('script');
-    script1.src = 'https://www.google.com/recaptcha/api.js?render=6LcM_LUrAAAAALi-BthTsuI_7TlbdljFXJGmS8fl';
+    script1.src = 'https://www.google.com/recaptcha/api.js?render=6LfEGuorAAAAAElSIgvmY-D3MxOwpqJ0erYswGnh&hl=de';
     script1.async = true;
     script1.defer = true;
     document.body.appendChild(script1);
@@ -263,7 +263,7 @@ export default function EmailSignup() {
                   <div style={{padding: '8px 0'}}>
                     <div
                       className="g-recaptcha-v3"
-                      data-sitekey="6LcM_LUrAAAAALi-BthTsuI_7TlbdljFXJGmS8fl"
+                      data-sitekey="6LfEGuorAAAAAElSIgvmY-D3MxOwpqJ0erYswGnh"
                     ></div>
                   </div>
                   <div style={{padding: '8px 0'}}>
