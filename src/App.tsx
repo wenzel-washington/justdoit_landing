@@ -17,7 +17,8 @@ function App() {
       </div>
       <GlassHeader />
 
-      <main className="relative z-10">
+      <main className="relative z-10 pointer-events-none">
+        <div className="pointer-events-auto">
         <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-20">
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <div className="space-y-6">
@@ -69,6 +70,7 @@ function App() {
             <EmailSignup />
           </div>
         </section>
+        </div>
       </main>
 
       <Footer />
