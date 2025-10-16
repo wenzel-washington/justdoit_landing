@@ -174,20 +174,14 @@ export default function LiquidEther({
       }
       onDocumentMouseMove(event) {
         if (this.onInteract) this.onInteract();
+        this.setCoords(event.clientX, event.clientY);
+
         if (this.isAutoActive && !this.hasUserControl && !this.takeoverActive) {
-          const rect = this.container.getBoundingClientRect();
-          const nx = (event.clientX - rect.left) / rect.width;
-          const ny = (event.clientY - rect.top) / rect.height;
-          this.takeoverFrom.copy(this.coords);
-          this.takeoverTo.set(nx * 2 - 1, -(ny * 2 - 1));
-          this.takeoverStartTime = performance.now();
-          this.takeoverActive = true;
           this.hasUserControl = true;
           this.isAutoActive = false;
-          return;
+        } else {
+          this.hasUserControl = true;
         }
-        this.setCoords(event.clientX, event.clientY);
-        this.hasUserControl = true;
       }
       onDocumentTouchStart(event) {
         if (event.touches.length === 1) {
@@ -214,22 +208,9 @@ export default function LiquidEther({
         this.isHoverInside = false;
       }
       update() {
-        if (this.takeoverActive) {
-          const t = (performance.now() - this.takeoverStartTime) / (this.takeoverDuration * 1000);
-          if (t >= 1) {
-            this.takeoverActive = false;
-            this.coords.copy(this.takeoverTo);
-            this.coords_old.copy(this.coords);
-            this.diff.set(0, 0);
-          } else {
-            const k = t * t * (3 - 2 * t);
-            this.coords.copy(this.takeoverFrom).lerp(this.takeoverTo, k);
-          }
-        }
         this.diff.subVectors(this.coords, this.coords_old);
         this.coords_old.copy(this.coords);
-        if (this.coords_old.x === 0 && this.coords_old.y === 0) this.diff.set(0, 0);
-        if (this.isAutoActive && !this.takeoverActive) this.diff.multiplyScalar(this.autoIntensity);
+        if (this.isAutoActive) this.diff.multiplyScalar(this.autoIntensity);
       }
     }
     const Mouse = new MouseClass();
