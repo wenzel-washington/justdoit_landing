@@ -36,6 +36,10 @@ export default function LiquidEther({
            window.innerWidth <= 768;
   };
 
+  const isTouchDevice = () => {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  };
+
   useEffect(() => {
     if (!mountRef.current) return;
 
@@ -143,14 +147,17 @@ export default function LiquidEther({
         this.takeoverTo = new THREE.Vector2();
         this.onInteract = null;
       }
-      init(container) {
+      init(container, disableTouch = false) {
         this.container = container;
+        this.disableTouch = disableTouch;
         document.addEventListener('mousemove', this._onMouseMove, false);
-        document.addEventListener('touchstart', this._onTouchStart, { passive: false });
-        document.addEventListener('touchmove', this._onTouchMove, { passive: false });
+        if (!disableTouch) {
+          document.addEventListener('touchstart', this._onTouchStart, { passive: false });
+          document.addEventListener('touchmove', this._onTouchMove, { passive: false });
+          document.addEventListener('touchend', this._onTouchEnd, false);
+        }
         container.addEventListener('mouseenter', this._onMouseEnter, false);
         container.addEventListener('mouseleave', this._onMouseLeave, false);
-        document.addEventListener('touchend', this._onTouchEnd, false);
       }
       dispose() {
         if (!this.container) return;
@@ -189,6 +196,7 @@ export default function LiquidEther({
         }
       }
       onDocumentTouchStart(event) {
+        if (this.disableTouch) return;
         if (event.touches.length === 1) {
           const t = event.touches[0];
           if (this.onInteract) this.onInteract();
@@ -197,6 +205,7 @@ export default function LiquidEther({
         }
       }
       onDocumentTouchMove(event) {
+        if (this.disableTouch) return;
         if (event.touches.length === 1) {
           const t = event.touches[0];
           if (this.onInteract) this.onInteract();
@@ -213,6 +222,10 @@ export default function LiquidEther({
         this.isHoverInside = false;
       }
       update() {
+        if (this.disableTouch && !this.isAutoActive) {
+          this.diff.set(0, 0);
+          return;
+        }
         this.diff.subVectors(this.coords, this.coords_old);
         this.coords_old.copy(this.coords);
         if (this.isAutoActive) this.diff.multiplyScalar(this.autoIntensity);
@@ -890,7 +903,8 @@ export default function LiquidEther({
       constructor(props) {
         this.props = props;
         Common.init(props.$wrapper);
-        Mouse.init(props.$wrapper);
+        const disableTouchInteraction = props.isMobile && isTouchDevice();
+        Mouse.init(props.$wrapper, disableTouchInteraction);
         Mouse.autoIntensity = props.autoIntensity;
         Mouse.takeoverDuration = props.takeoverDuration;
         this.lastUserInteraction = performance.now();
@@ -918,6 +932,9 @@ export default function LiquidEther({
         };
         document.addEventListener('visibilitychange', this._onVisibility);
         this.running = false;
+        this.isMobile = props.isMobile;
+        this.lastFrameTime = 0;
+        this.frameInterval = props.isMobile ? 1000 / 30 : 1000 / 60;
       }
       init() {
         this.props.$wrapper.prepend(Common.renderer.domElement);
@@ -933,9 +950,14 @@ export default function LiquidEther({
         Common.update();
         this.output.update();
       }
-      loop() {
+      loop(timestamp) {
         if (!this.running) return;
-        this.render();
+        if (!timestamp) timestamp = performance.now();
+        const elapsed = timestamp - this.lastFrameTime;
+        if (elapsed >= this.frameInterval) {
+          this.lastFrameTime = timestamp - (elapsed % this.frameInterval);
+          this.render();
+        }
         rafRef.current = requestAnimationFrame(this._loop);
       }
       start() {
@@ -970,6 +992,7 @@ export default function LiquidEther({
     container.style.position = container.style.position || 'relative';
     container.style.overflow = container.style.overflow || 'hidden';
 
+    const mobileDevice = isMobile();
     const webgl = new WebGLManager({
       $wrapper: container,
       autoDemo,
@@ -977,7 +1000,8 @@ export default function LiquidEther({
       autoIntensity,
       takeoverDuration,
       autoResumeDelay,
-      autoRampDuration
+      autoRampDuration,
+      isMobile: mobileDevice
     });
     webglRef.current = webgl;
 
@@ -987,19 +1011,22 @@ export default function LiquidEther({
       if (!sim) return;
       const prevRes = sim.options.resolution;
 
-      const mobileDevice = isMobile();
-      const effectiveResolution = mobileDevice ? 0.25 : resolution;
-      const effectiveCursorSize = mobileDevice ? 50 : cursorSize;
+      const effectiveResolution = mobileDevice ? 0.2 : resolution;
+      const effectiveCursorSize = mobileDevice ? 35 : cursorSize;
+      const effectiveMouseForce = mobileDevice ? mouseForce * 0.7 : mouseForce;
+      const effectiveIterationsPoisson = mobileDevice ? 10 : iterationsPoisson;
+      const effectiveIterationsViscous = mobileDevice ? 10 : iterationsViscous;
+      const effectiveBFECC = mobileDevice ? false : BFECC;
 
       Object.assign(sim.options, {
-        mouse_force: mouseForce,
+        mouse_force: effectiveMouseForce,
         cursor_size: effectiveCursorSize,
         isViscous,
         viscous,
-        iterations_viscous: iterationsViscous,
-        iterations_poisson: iterationsPoisson,
+        iterations_viscous: effectiveIterationsViscous,
+        iterations_poisson: effectiveIterationsPoisson,
         dt,
-        BFECC,
+        BFECC: effectiveBFECC,
         resolution: effectiveResolution,
         isBounce
       });
@@ -1088,18 +1115,22 @@ export default function LiquidEther({
     const prevRes = sim.options.resolution;
 
     const mobileDevice = isMobile();
-    const effectiveResolution = mobileDevice ? 0.25 : resolution;
-    const effectiveCursorSize = mobileDevice ? 50 : cursorSize;
+    const effectiveResolution = mobileDevice ? 0.2 : resolution;
+    const effectiveCursorSize = mobileDevice ? 35 : cursorSize;
+    const effectiveMouseForce = mobileDevice ? mouseForce * 0.7 : mouseForce;
+    const effectiveIterationsPoisson = mobileDevice ? 10 : iterationsPoisson;
+    const effectiveIterationsViscous = mobileDevice ? 10 : iterationsViscous;
+    const effectiveBFECC = mobileDevice ? false : BFECC;
 
     Object.assign(sim.options, {
-      mouse_force: mouseForce,
+      mouse_force: effectiveMouseForce,
       cursor_size: effectiveCursorSize,
       isViscous,
       viscous,
-      iterations_viscous: iterationsViscous,
-      iterations_poisson: iterationsPoisson,
+      iterations_viscous: effectiveIterationsViscous,
+      iterations_poisson: effectiveIterationsPoisson,
       dt,
-      BFECC,
+      BFECC: effectiveBFECC,
       resolution: effectiveResolution,
       isBounce
     });
