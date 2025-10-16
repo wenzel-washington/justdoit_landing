@@ -31,6 +31,11 @@ export default function LiquidEther({
   const isVisibleRef = useRef(true);
   const resizeRafRef = useRef(null);
 
+  const isMobile = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+           window.innerWidth <= 768;
+  };
+
   useEffect(() => {
     if (!mountRef.current) return;
 
@@ -981,19 +986,24 @@ export default function LiquidEther({
       const sim = webglRef.current.output?.simulation;
       if (!sim) return;
       const prevRes = sim.options.resolution;
+
+      const mobileDevice = isMobile();
+      const effectiveResolution = mobileDevice ? 0.25 : resolution;
+      const effectiveCursorSize = mobileDevice ? 50 : cursorSize;
+
       Object.assign(sim.options, {
         mouse_force: mouseForce,
-        cursor_size: cursorSize,
+        cursor_size: effectiveCursorSize,
         isViscous,
         viscous,
         iterations_viscous: iterationsViscous,
         iterations_poisson: iterationsPoisson,
         dt,
         BFECC,
-        resolution,
+        resolution: effectiveResolution,
         isBounce
       });
-      if (resolution !== prevRes) {
+      if (effectiveResolution !== prevRes) {
         sim.resize();
       }
     };
@@ -1076,16 +1086,21 @@ export default function LiquidEther({
     const sim = webgl.output?.simulation;
     if (!sim) return;
     const prevRes = sim.options.resolution;
+
+    const mobileDevice = isMobile();
+    const effectiveResolution = mobileDevice ? 0.25 : resolution;
+    const effectiveCursorSize = mobileDevice ? 50 : cursorSize;
+
     Object.assign(sim.options, {
       mouse_force: mouseForce,
-      cursor_size: cursorSize,
+      cursor_size: effectiveCursorSize,
       isViscous,
       viscous,
       iterations_viscous: iterationsViscous,
       iterations_poisson: iterationsPoisson,
       dt,
       BFECC,
-      resolution,
+      resolution: effectiveResolution,
       isBounce
     });
     if (webgl.autoDriver) {
@@ -1098,7 +1113,7 @@ export default function LiquidEther({
         webgl.autoDriver.mouse.takeoverDuration = takeoverDuration;
       }
     }
-    if (resolution !== prevRes) {
+    if (effectiveResolution !== prevRes) {
       sim.resize();
     }
   }, [
