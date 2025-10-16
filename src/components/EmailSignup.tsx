@@ -9,7 +9,9 @@ export default function EmailSignup() {
     document.body.appendChild(script1);
 
     const script2 = document.createElement('script');
-    script2.src = 'https://www.google.com/recaptcha/api.js?hl=de';
+    script2.src = 'https://www.google.com/recaptcha/api.js?render=6LfEGuorAAAAAElSIgvmY-D3MxOwpqJ0erYswGnh&hl=de';
+    script2.async = true;
+    script2.defer = true;
     document.body.appendChild(script2);
 
     const link = document.createElement('link');
@@ -32,12 +34,6 @@ export default function EmailSignup() {
     };
     window.AUTOHIDE = Boolean(0);
 
-    setTimeout(() => {
-      const checkboxes = document.querySelectorAll('input[name="LANGUAGE[]"]');
-      checkboxes.forEach((checkbox) => {
-        (checkbox as HTMLInputElement).checked = false;
-      });
-    }, 100);
 
     return () => {
       document.body.removeChild(script1);
@@ -135,62 +131,8 @@ export default function EmailSignup() {
           background: rgba(255, 255, 255, 0.15) !important;
         }
 
-        #sib-container .checkbox__label {
-          color: white !important;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          cursor: pointer;
-          padding: 0.5rem;
-          border-radius: 0.5rem;
-          transition: background 0.2s;
-        }
-
-        #sib-container .checkbox__label:hover {
-          background: rgba(255, 255, 255, 0.05);
-        }
-
-        #sib-container .checkbox {
-          position: relative;
-          width: 1.25rem;
-          height: 1.25rem;
-          border: 2px solid rgba(255, 255, 255, 0.3);
-          border-radius: 0.25rem;
-          background: rgba(255, 255, 255, 0.1) !important;
-          flex-shrink: 0;
-        }
-
-        #sib-container .checkbox::after {
+        .g-recaptcha-v3 {
           display: none !important;
-        }
-
-        #sib-container .input_replaced {
-          position: absolute;
-          opacity: 0;
-          cursor: pointer;
-        }
-
-        #sib-container .input_replaced:checked ~ .checkbox {
-          background: rgba(255, 255, 255, 0.3) !important;
-          border-color: rgba(255, 255, 255, 0.6) !important;
-        }
-
-        #sib-container .input_replaced:checked ~ .checkbox::after {
-          content: '' !important;
-          position: absolute !important;
-          display: block !important;
-          left: 0.35rem;
-          top: 0.15rem;
-          width: 0.4rem;
-          height: 0.7rem;
-          border: solid white;
-          border-width: 0 2px 2px 0;
-          transform: rotate(45deg);
-        }
-
-        .g-recaptcha {
-          display: flex;
-          justify-content: center;
         }
 
         #sib-container .sib-form-block__button {
@@ -332,53 +274,9 @@ export default function EmailSignup() {
                     </div>
                   </div>
                   <div style={{padding: '8px 0'}}>
-                    <div className="sib-checkbox-group sib-form-block" data-required="true">
-                      <div className="form__entry entry_mcq">
-                        <div className="form__label-row">
-                          <label className="entry__label" data-required="*">
-                            Choose your language
-                          </label>
-                          <div>
-                            <div className="entry__choice">
-                              <label className="checkbox__label">
-                                <input
-                                  type="checkbox"
-                                  className="input_replaced"
-                                  name="LANGUAGE[]"
-                                  data-value="English"
-                                  value="English"
-                                  data-required="true"
-                                />
-                                <span className="checkbox checkbox_tick_positive"></span>
-                                <span>English</span>
-                              </label>
-                            </div>
-                            <div className="entry__choice">
-                              <label className="checkbox__label">
-                                <input
-                                  type="checkbox"
-                                  className="input_replaced"
-                                  name="LANGUAGE[]"
-                                  data-value="German"
-                                  value="German"
-                                  data-required="true"
-                                />
-                                <span className="checkbox checkbox_tick_positive"></span>
-                                <span>German</span>
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                        <label className="entry__error entry__error--primary"></label>
-                      </div>
-                    </div>
-                  </div>
-                  <div style={{padding: '8px 0'}}>
                     <div
-                      className="g-recaptcha"
+                      className="g-recaptcha-v3"
                       data-sitekey="6LfEGuorAAAAAElSIgvmY-D3MxOwpqJ0erYswGnh"
-                      data-callback="invisibleCaptchaCallback"
-                      data-size="invisible"
                     ></div>
                   </div>
                   <div style={{padding: '8px 0'}}>
@@ -405,14 +303,6 @@ export default function EmailSignup() {
         </div>
       </GlassSurface>
 
-      <script dangerouslySetInnerHTML={{__html: `
-        function invisibleCaptchaCallback() {
-          // Callback for invisible reCAPTCHA
-        }
-        function executeCaptcha() {
-          grecaptcha.execute();
-        }
-      `}} />
     </div>
   );
 }
