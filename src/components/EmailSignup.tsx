@@ -3,22 +3,6 @@ import GlassSurface from './GlassSurface';
 
 export default function EmailSignup() {
   useEffect(() => {
-    const script1 = document.createElement('script');
-    script1.defer = true;
-    script1.src = 'https://sibforms.com/forms/end-form/build/main.js';
-    document.body.appendChild(script1);
-
-    const script2 = document.createElement('script');
-    script2.src = 'https://www.google.com/recaptcha/api.js?render=6LfEGuorAAAAAElSIgvmY-D3MxOwpqJ0erYswGnh&hl=de';
-    script2.async = true;
-    script2.defer = true;
-    document.body.appendChild(script2);
-
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://sibforms.com/forms/end-form/build/sib-styles.css';
-    document.head.appendChild(link);
-
     window.REQUIRED_CODE_ERROR_MESSAGE = 'Wähle bitte einen Ländervorwahl aus.';
     window.LOCALE = 'de';
     window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Die eingegebenen Informationen sind nicht gültig. Bitte überprüfe das Feldformat und versuche es erneut.";
@@ -34,11 +18,26 @@ export default function EmailSignup() {
     };
     window.AUTOHIDE = Boolean(0);
 
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://sibforms.com/forms/end-form/build/sib-styles.css';
+    document.head.appendChild(link);
+
+    const script1 = document.createElement('script');
+    script1.src = 'https://www.google.com/recaptcha/api.js?render=6LcM_LUrAAAAALi-BthTsuI_7TlbdljFXJGmS8fl';
+    script1.async = true;
+    script1.defer = true;
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.defer = true;
+    script2.src = 'https://sibforms.com/forms/end-form/build/main.js';
+    document.body.appendChild(script2);
 
     return () => {
-      document.body.removeChild(script1);
-      document.body.removeChild(script2);
-      document.head.removeChild(link);
+      if (document.body.contains(script1)) document.body.removeChild(script1);
+      if (document.body.contains(script2)) document.body.removeChild(script2);
+      if (document.head.contains(link)) document.head.removeChild(link);
     };
   }, []);
 
@@ -248,13 +247,13 @@ export default function EmailSignup() {
                               id="EMAIL"
                               name="EMAIL"
                               autoComplete="off"
-                              placeholder="EMAIL"
+                              placeholder="deine@email.com"
                               data-required="true"
                               required
                             />
                           </div>
                         </div>
-                        <label className="entry__error entry__error--primary"></label>
+                        <label className="entry__error entry__error--primary" style={{fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949'}}></label>
                         <label className="entry__specification">
                           Gib bitte deine E-Mail-Adresse für die Anmeldung an, z. B. abc@xyz.com.
                         </label>
@@ -264,7 +263,7 @@ export default function EmailSignup() {
                   <div style={{padding: '8px 0'}}>
                     <div
                       className="g-recaptcha-v3"
-                      data-sitekey="6LfEGuorAAAAAElSIgvmY-D3MxOwpqJ0erYswGnh"
+                      data-sitekey="6LcM_LUrAAAAALi-BthTsuI_7TlbdljFXJGmS8fl"
                     ></div>
                   </div>
                   <div style={{padding: '8px 0'}}>
@@ -282,7 +281,7 @@ export default function EmailSignup() {
                     </div>
                   </div>
 
-                  <input type="text" name="email_address_check" value="" className="input--hidden" style={{display: 'none'}} />
+                  <input type="text" name="email_address_check" value="" className="input--hidden" style={{position: 'absolute', left: '-5000px'}} />
                   <input type="hidden" name="locale" value="de" />
                 </form>
               </div>
