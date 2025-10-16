@@ -32,6 +32,13 @@ export default function EmailSignup() {
     };
     window.AUTOHIDE = Boolean(0);
 
+    setTimeout(() => {
+      const checkboxes = document.querySelectorAll('input[name="LANGUAGE[]"]');
+      checkboxes.forEach((checkbox) => {
+        (checkbox as HTMLInputElement).checked = false;
+      });
+    }, 100);
+
     return () => {
       document.body.removeChild(script1);
       document.body.removeChild(script2);
@@ -149,8 +156,12 @@ export default function EmailSignup() {
           height: 1.25rem;
           border: 2px solid rgba(255, 255, 255, 0.3);
           border-radius: 0.25rem;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.1) !important;
           flex-shrink: 0;
+        }
+
+        #sib-container .checkbox::after {
+          display: none !important;
         }
 
         #sib-container .input_replaced {
@@ -160,14 +171,14 @@ export default function EmailSignup() {
         }
 
         #sib-container .input_replaced:checked ~ .checkbox {
-          background: rgba(255, 255, 255, 0.3);
-          border-color: rgba(255, 255, 255, 0.6);
+          background: rgba(255, 255, 255, 0.3) !important;
+          border-color: rgba(255, 255, 255, 0.6) !important;
         }
 
         #sib-container .input_replaced:checked ~ .checkbox::after {
-          content: '';
-          position: absolute;
-          display: block;
+          content: '' !important;
+          position: absolute !important;
+          display: block !important;
           left: 0.35rem;
           top: 0.15rem;
           width: 0.4rem;
