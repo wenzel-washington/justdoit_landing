@@ -89,6 +89,10 @@ export default function EmailSignup() {
           color: white !important;
         }
 
+        #sib-container .sib-form-block p {
+          font-family: inherit !important;
+        }
+
         #sib-container .entry__label {
           color: white !important;
           font-weight: 600 !important;
