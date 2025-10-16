@@ -62,7 +62,7 @@ export default function EmailSignup() {
         #sib-container input::placeholder {
           text-align: left;
           font-family: inherit;
-          color: rgba(255, 255, 255, 0.5);
+          color: rgba(26, 26, 46, 0.5);
         }
 
         #sib-container textarea::placeholder {
@@ -105,10 +105,10 @@ export default function EmailSignup() {
           width: 100%;
           padding: 0.75rem 1rem;
           border-radius: 0.75rem;
-          background: rgba(255, 255, 255, 0.1) !important;
+          background: rgba(255, 255, 255, 0.9) !important;
           backdrop-filter: blur(10px);
           border: 1px solid rgba(255, 255, 255, 0.2) !important;
-          color: white !important;
+          color: #1a1a2e !important;
           font-size: 1rem;
           transition: all 0.2s;
         }
@@ -116,7 +116,7 @@ export default function EmailSignup() {
         #sib-container .input:focus {
           outline: none;
           border-color: rgba(255, 255, 255, 0.4) !important;
-          background: rgba(255, 255, 255, 0.15) !important;
+          background: rgba(255, 255, 255, 0.95) !important;
         }
 
         .g-recaptcha-v3 {
