@@ -145,6 +145,14 @@ export default function EmailSignup() {
           transform: scale(0.98);
         }
 
+        .sib-form-message-panel {
+          display: none !important;
+        }
+
+        .sib-form-message-panel.sib-form-message-panel--active {
+          display: block !important;
+        }
+
         #error-message, #success-message {
           background: rgba(255, 255, 255, 0.15) !important;
           backdrop-filter: blur(10px);
@@ -199,7 +207,7 @@ export default function EmailSignup() {
         <div className="w-full p-6 md:p-8">
           <div className="sib-form">
             <div id="sib-form-container" className="sib-form-container">
-              <div id="error-message" className="sib-form-message-panel" style={{display: 'none'}}>
+              <div id="error-message" className="sib-form-message-panel">
                 <div className="sib-form-message-panel__text sib-form-message-panel__text--center">
                   <svg viewBox="0 0 512 512" className="sib-icon sib-notification__icon" style={{width: '1.5rem', height: '1.5rem', display: 'inline-block', verticalAlign: 'middle', marginRight: '0.5rem'}}>
                     <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" fill="currentColor" />
@@ -209,7 +217,7 @@ export default function EmailSignup() {
                   </span>
                 </div>
               </div>
-              <div id="success-message" className="sib-form-message-panel" style={{display: 'none'}}>
+              <div id="success-message" className="sib-form-message-panel">
                 <div className="sib-form-message-panel__text sib-form-message-panel__text--center">
                   <svg viewBox="0 0 512 512" className="sib-icon sib-notification__icon" style={{width: '1.5rem', height: '1.5rem', display: 'inline-block', verticalAlign: 'middle', marginRight: '0.5rem'}}>
                     <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" fill="currentColor" />
