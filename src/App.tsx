@@ -12,6 +12,7 @@ function App() {
         <LiquidEther
           colors={['#5227FF', '#FF9FFC', '#B19EEF']}
           autoResumeDelay={5000}
+          resolution={0.4}
           style={{ width: '100%', height: '100%' }}
         />
       </div>
