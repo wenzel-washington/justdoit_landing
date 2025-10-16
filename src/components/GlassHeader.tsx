@@ -26,13 +26,17 @@ export default function GlassHeader() {
           backgroundOpacity={0.1}
           saturation={1.2}
         >
-          <h1
-            className={`text-2xl font-bold text-white tracking-tight py-2 transition-all duration-500 ease-out ${
-              isScrolled ? 'text-left' : 'text-center'
-            }`}
-          >
-            JustBuild.it
-          </h1>
+          <div className={`flex transition-all duration-500 ease-out ${
+            isScrolled ? 'justify-start' : 'justify-center'
+          }`}>
+            <h1
+              className={`text-2xl font-bold text-white tracking-tight py-2 transition-all duration-500 ease-out ${
+                isScrolled ? 'px-4' : 'px-0'
+              }`}
+            >
+              JustBuild.it
+            </h1>
+          </div>
         </GlassSurface>
       </div>
     </header>
