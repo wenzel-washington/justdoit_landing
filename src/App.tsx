@@ -28,8 +28,8 @@ function App() {
                 Start shipping.
               </h2>
               <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-                Build mini-apps in minutes.<br />
-                No code. No excuses. No BS.
+                Turn your ideas into live tools.<br />
+                Today. Not someday.
               </p>
             </div>
 
