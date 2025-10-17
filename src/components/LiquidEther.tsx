@@ -1011,7 +1011,7 @@ export default function LiquidEther({
       if (!sim) return;
       const prevRes = sim.options.resolution;
 
-      const effectiveResolution = mobileDevice ? 0.2 : resolution;
+      const effectiveResolution = mobileDevice ? 0.3 : resolution;
       const effectiveCursorSize = mobileDevice ? 35 : cursorSize;
       const effectiveMouseForce = mobileDevice ? mouseForce * 0.7 : mouseForce;
       const effectiveIterationsPoisson = mobileDevice ? 10 : iterationsPoisson;

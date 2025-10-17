@@ -11,7 +11,7 @@ function App() {
       <div className="fixed inset-0 z-0 bg-[#0a0a1a]">
         <LiquidEther
           colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-          autoResumeDelay={5000}
+          autoResumeDelay={500}
           resolution={0.4}
           style={{ width: '100%', height: '100%' }}
         />
