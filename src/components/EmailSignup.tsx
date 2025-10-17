@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import GlassSurface from './GlassSurface';
+import Glass from './Glass';
 
 export default function EmailSignup() {
   useEffect(() => {
@@ -201,16 +201,7 @@ export default function EmailSignup() {
         }
       `}} />
 
-      <GlassSurface
-        width="100%"
-        height="auto"
-        borderRadius={20}
-        brightness={50}
-        opacity={0.85}
-        blur={12}
-        backgroundOpacity={0.05}
-        saturation={1.1}
-      >
+      <Glass blur={12} opacity={0.08} borderRadius={20}>
         <div className="w-full p-6 md:p-8">
           <div className="sib-form">
             <div id="sib-form-container" className="sib-form-container">
@@ -303,7 +294,7 @@ export default function EmailSignup() {
             </div>
           </div>
         </div>
-      </GlassSurface>
+      </Glass>
 
     </div>
   );
