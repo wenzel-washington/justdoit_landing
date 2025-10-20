@@ -35,7 +35,7 @@ function App() {
 
             <EmailSignup />
 
-            <p className="text-white/70">
+            <p className="text-xl md:text-2xl text-white/80">
               Join builders who ship, not plan.
             </p>
           </div>

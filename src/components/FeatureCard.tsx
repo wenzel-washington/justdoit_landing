@@ -24,32 +24,54 @@ const cards = [
 
 export default function FeatureCard() {
   return (
-    <div className="relative w-full max-w-[350px] md:max-w-[380px] h-[450px] md:h-[500px] group perspective-[1200px]">
-      {cards.map((card) => {
-        const Icon = card.icon;
+    <div className="relative w-full">
+      <div className="hidden md:block relative max-w-[380px] h-[500px] group perspective-[1200px] mx-auto">
+        {cards.map((card) => {
+          const Icon = card.icon;
 
-        return (
-          <div
-            key={card.position}
-            className={`
-              card-base
-              ${card.position === 'left' ? 'card-left' : ''}
-              ${card.position === 'middle' ? 'card-middle' : ''}
-              ${card.position === 'right' ? 'card-right' : ''}
-            `}
-          >
-            <Glass blur={12} opacity={0.08} borderRadius={24}>
-              <div className="p-8 md:p-10 h-full flex flex-col justify-center items-center text-center">
-                <div className="icon-wrapper mb-6">
-                  <Icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
+          return (
+            <div
+              key={card.position}
+              className={`
+                card-base
+                ${card.position === 'left' ? 'card-left' : ''}
+                ${card.position === 'middle' ? 'card-middle' : ''}
+                ${card.position === 'right' ? 'card-right' : ''}
+              `}
+            >
+              <Glass blur={12} opacity={0.08} borderRadius={24}>
+                <div className="p-10 h-full flex flex-col justify-center items-center text-center">
+                  <div className="icon-wrapper mb-6">
+                    <Icon className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">{card.title}</h3>
+                  <p className="text-base text-white/70 leading-relaxed">{card.description}</p>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">{card.title}</h3>
-                <p className="text-sm md:text-base text-white/70 leading-relaxed">{card.description}</p>
-              </div>
-            </Glass>
-          </div>
-        );
-      })}
+              </Glass>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="md:hidden flex flex-col gap-6 max-w-[350px] mx-auto">
+        {cards.map((card) => {
+          const Icon = card.icon;
+
+          return (
+            <div key={card.position}>
+              <Glass blur={12} opacity={0.08} borderRadius={24}>
+                <div className="p-8 h-[450px] flex flex-col justify-center items-center text-center">
+                  <div className="icon-wrapper mb-6">
+                    <Icon className="w-12 h-12 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">{card.title}</h3>
+                  <p className="text-sm text-white/70 leading-relaxed">{card.description}</p>
+                </div>
+              </Glass>
+            </div>
+          );
+        })}
+      </div>
 
       <style>{`
         .card-base {
@@ -130,23 +152,8 @@ export default function FeatureCard() {
           opacity: 1;
         }
 
-        /* Mobile adjustments - vertical stack */
-        @media (max-width: 768px) {
-          .group:hover .card-left {
-            transform: translateY(-100%) rotate(0deg) translateX(0);
-          }
-
-          .group:hover .card-middle {
-            transform: translateY(0%) rotate(0deg) translateX(0);
-          }
-
-          .group:hover .card-right {
-            transform: translateY(100%) rotate(0deg) translateX(0);
-          }
-
-          .card-base:hover {
-            transform: translateY(-30px) scale(1.05) rotate(0deg) !important;
-          }
+        .icon-wrapper {
+          filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5));
         }
       `}</style>
     </div>
