@@ -82,7 +82,7 @@ export default function FeatureCard() {
 
         /* Hover state - fan out */
         .group:hover .card-left {
-          transform: translateX(-140%) rotate(-8deg) translateY(-15px);
+          transform: translateX(-45%) rotate(-8deg) translateY(-15px);
           z-index: 3;
         }
 
@@ -92,7 +92,7 @@ export default function FeatureCard() {
         }
 
         .group:hover .card-right {
-          transform: translateX(140%) rotate(8deg) translateY(-15px);
+          transform: translateX(45%) rotate(8deg) translateY(-15px);
           z-index: 3;
         }
 
@@ -133,7 +133,7 @@ export default function FeatureCard() {
         /* Mobile adjustments */
         @media (max-width: 768px) {
           .group:hover .card-left {
-            transform: translateX(-110%) rotate(-5deg) translateY(-10px);
+            transform: translateX(-40%) rotate(-5deg) translateY(-10px);
           }
 
           .group:hover .card-middle {
@@ -141,7 +141,7 @@ export default function FeatureCard() {
           }
 
           .group:hover .card-right {
-            transform: translateX(110%) rotate(5deg) translateY(-10px);
+            transform: translateX(40%) rotate(5deg) translateY(-10px);
           }
 
           .card-base:hover {
