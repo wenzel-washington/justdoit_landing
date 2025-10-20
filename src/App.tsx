@@ -20,7 +20,7 @@ function App() {
 
       <main className="relative z-10 pointer-events-none">
         <div className="pointer-events-auto">
-        <section className="flex flex-col items-center px-6 pt-24 md:pt-16 pb-12">
+        <section className="flex flex-col items-center px-6 pt-32 md:pt-28 pb-12">
           <div className="max-w-4xl mx-auto text-center space-y-8 md:space-y-6">
             <div className="space-y-6">
               <h2 className="text-5xl md:text-6xl font-bold leading-tight">
