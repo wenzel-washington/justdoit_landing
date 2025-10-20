@@ -24,7 +24,7 @@ const cards = [
 
 export default function FeatureCard() {
   return (
-    <div className="relative w-full max-w-[350px] md:max-w-[380px] h-[450px] md:h-[500px] group/container perspective-[1200px]">
+    <div className="relative w-full max-w-[350px] md:max-w-[380px] h-[450px] md:h-[500px] group perspective-[1200px]">
       {cards.map((card) => {
         const Icon = card.icon;
 
@@ -81,17 +81,17 @@ export default function FeatureCard() {
         }
 
         /* Hover state - fan out */
-        .group\/container:hover .card-left {
+        .group:hover .card-left {
           transform: translateX(-140%) rotate(-8deg) translateY(-15px);
           z-index: 3;
         }
 
-        .group\/container:hover .card-middle {
+        .group:hover .card-middle {
           transform: translateX(0%) rotate(0deg) translateY(-30px);
           z-index: 3;
         }
 
-        .group\/container:hover .card-right {
+        .group:hover .card-right {
           transform: translateX(140%) rotate(8deg) translateY(-15px);
           z-index: 3;
         }
@@ -132,15 +132,15 @@ export default function FeatureCard() {
 
         /* Mobile adjustments */
         @media (max-width: 768px) {
-          .group\/container:hover .card-left {
+          .group:hover .card-left {
             transform: translateX(-110%) rotate(-5deg) translateY(-10px);
           }
 
-          .group\/container:hover .card-middle {
+          .group:hover .card-middle {
             transform: translateX(0%) rotate(0deg) translateY(-20px);
           }
 
-          .group\/container:hover .card-right {
+          .group:hover .card-right {
             transform: translateX(110%) rotate(5deg) translateY(-10px);
           }
 
