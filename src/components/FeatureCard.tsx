@@ -82,7 +82,7 @@ export default function FeatureCard() {
 
         /* Hover state - fan out */
         .group:hover .card-left {
-          transform: translateX(-65%) rotate(-8deg) translateY(-15px);
+          transform: translateX(-100%) rotate(-8deg) translateY(-15px);
           z-index: 3;
         }
 
@@ -92,7 +92,7 @@ export default function FeatureCard() {
         }
 
         .group:hover .card-right {
-          transform: translateX(65%) rotate(8deg) translateY(-15px);
+          transform: translateX(100%) rotate(8deg) translateY(-15px);
           z-index: 3;
         }
 
@@ -130,18 +130,18 @@ export default function FeatureCard() {
           opacity: 1;
         }
 
-        /* Mobile adjustments */
+        /* Mobile adjustments - vertical stack */
         @media (max-width: 768px) {
           .group:hover .card-left {
-            transform: translateX(-55%) rotate(-5deg) translateY(-10px);
+            transform: translateY(-100%) rotate(0deg) translateX(0);
           }
 
           .group:hover .card-middle {
-            transform: translateX(0%) rotate(0deg) translateY(-20px);
+            transform: translateY(0%) rotate(0deg) translateX(0);
           }
 
           .group:hover .card-right {
-            transform: translateX(55%) rotate(5deg) translateY(-10px);
+            transform: translateY(100%) rotate(0deg) translateX(0);
           }
 
           .card-base:hover {
