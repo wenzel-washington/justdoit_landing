@@ -202,7 +202,7 @@ export default function EmailSignup() {
       `}} />
 
       <Glass blur={12} opacity={0.08} borderRadius={20}>
-        <div className="w-full p-6 md:p-8">
+        <div className="w-full p-4 md:p-5">
           <div className="sib-form">
             <div id="sib-form-container" className="sib-form-container">
               <div id="error-message" className="sib-form-message-panel">
@@ -243,9 +243,6 @@ export default function EmailSignup() {
                     <div className="sib-input sib-form-block">
                       <div className="form__entry entry_block">
                         <div className="form__label-row">
-                          <label className="entry__label" htmlFor="EMAIL" data-required="*">
-                            Enter your email address to subscribe
-                          </label>
                           <div className="entry__field">
                             <input
                               className="input"
