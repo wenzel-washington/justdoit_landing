@@ -231,7 +231,7 @@ export default function EmailSignup() {
                     <p style={{margin: 0}}>Join the Waitlist</p>
                   </div>
                   <div style={{padding: '4px 0', marginBottom: '0.5rem'}}>
-                    <div className="sib-form-block" style={{fontSize: '1rem', textAlign: 'center'}}>
+                    <div className="sib-form-block" style={{fontSize: '1.125rem', textAlign: 'center'}}>
                       <div className="sib-text-form-block">
                         <p style={{margin: 0, lineHeight: '1.5'}}>Be among the first 100 builders.<br />Get early access and exclusive founding benefits.</p>
                       </div>
