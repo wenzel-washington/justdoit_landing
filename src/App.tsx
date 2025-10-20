@@ -27,7 +27,7 @@ function App() {
                 Stop overthinking.<br />
                 Start shipping.
               </h2>
-              <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed pb-6">
                 Turn your ideas into live tools.<br />
                 Today. Not someday.
               </p>
