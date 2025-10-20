@@ -202,7 +202,7 @@ export default function EmailSignup() {
       `}} />
 
       <Glass blur={12} opacity={0.08} borderRadius={20}>
-        <div className="w-full p-4 md:p-5">
+        <div className="w-full px-4 md:px-5 pb-4 md:pb-5 pt-6">
           <div className="sib-form">
             <div id="sib-form-container" className="sib-form-container">
               <div id="error-message" className="sib-form-message-panel">
@@ -227,10 +227,8 @@ export default function EmailSignup() {
               </div>
               <div id="sib-container" className="sib-container--large sib-container--vertical">
                 <form id="sib-form" method="POST" action="https://21b6fa3a.sibforms.com/serve/MUIFAEo3RLzN4UaPLVvdVSz1g5oB-EY6I7IqFqR_ymKtPAQu6JXNSmC2mx8kXOs2YLC6YNsqCFn6QU0HiKMmOthcSMnO-H2siq5TvBVvBFrvy1R5mWj5jeZ-Z8IogLz8zmNHbFKF8FqdcKnV2yo2RbrIHgczKJkeLQAqboJVgI9Q3vNLuWbesiWN34j3c02Ma0Hp5RKEUCkRbTzs" data-type="subscription">
-                  <div style={{padding: '4px 0'}}>
-                    <div className="sib-form-block" style={{fontSize: '2rem', textAlign: 'center', fontWeight: 700, marginBottom: '0.25rem'}}>
-                      <p style={{margin: 0}}>Join the Waitlist</p>
-                    </div>
+                  <div className="sib-form-block" style={{fontSize: '2rem', textAlign: 'center', fontWeight: 700, marginBottom: '0.25rem'}}>
+                    <p style={{margin: 0}}>Join the Waitlist</p>
                   </div>
                   <div style={{padding: '4px 0', marginBottom: '0.5rem'}}>
                     <div className="sib-form-block" style={{fontSize: '1rem', textAlign: 'center'}}>
