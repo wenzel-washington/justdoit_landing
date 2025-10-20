@@ -248,7 +248,7 @@ export default function EmailSignup() {
                               id="EMAIL"
                               name="EMAIL"
                               autoComplete="off"
-                              placeholder="deine@email.com"
+                              placeholder="your@email.com"
                               data-required="true"
                               required
                             />
