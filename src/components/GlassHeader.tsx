@@ -7,7 +7,7 @@ export default function GlassHeader() {
         <Glass blur={10} opacity={0.1} borderRadius={16}>
           <div className="flex justify-center py-2">
             <img
-              src="https://i.imgur.com/AOXVyeE.png"
+              src="https://i.imgur.com/v1sZfwp.png"
               alt="JustBuild.it"
               className="h-auto w-auto"
             />
