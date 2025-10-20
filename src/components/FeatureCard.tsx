@@ -59,12 +59,12 @@ export default function FeatureCard() {
 
           return (
             <div key={card.position}>
-              <Glass blur={12} opacity={0.08} borderRadius={24}>
-                <div className="p-8 h-[450px] flex flex-col justify-center items-center text-center">
-                  <div className="icon-wrapper mb-6">
-                    <Icon className="w-12 h-12 text-white" />
+              <Glass blur={12} opacity={0.08} borderRadius={20}>
+                <div className="px-6 py-8 flex flex-col justify-center items-center text-center">
+                  <div className="icon-wrapper mb-4">
+                    <Icon className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">{card.title}</h3>
+                  <h3 className="text-xl font-bold text-white mb-3 tracking-tight">{card.title}</h3>
                   <p className="text-sm text-white/70 leading-relaxed">{card.description}</p>
                 </div>
               </Glass>
