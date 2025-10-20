@@ -6,11 +6,14 @@ export default function GlassHeader() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <Glass blur={10} opacity={0.1} borderRadius={16}>
           <div className="flex justify-center py-2">
-            <img
-              src="https://i.imgur.com/v1sZfwp.png"
-              alt="JustBuild.it"
-              className="h-auto w-auto"
-            />
+            <h1
+              className="text-3xl font-bold text-white tracking-tight"
+              style={{
+                textShadow: '0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3)'
+              }}
+            >
+              JustBuild.it
+            </h1>
           </div>
         </Glass>
       </div>
