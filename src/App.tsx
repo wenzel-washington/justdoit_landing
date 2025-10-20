@@ -35,13 +35,13 @@ function App() {
 
             <EmailSignup />
 
-            <p className="text-xl md:text-2xl text-white/80">
+            <p className="text-xl md:text-2xl text-white/80 pt-6">
               Join builders who ship, not plan.
             </p>
           </div>
         </section>
 
-        <section className="py-24 px-6">
+        <section className="py-12 px-6">
           <div className="max-w-6xl mx-auto flex justify-center">
             <FeatureCard />
           </div>
