@@ -227,19 +227,19 @@ export default function EmailSignup() {
               </div>
               <div id="sib-container" className="sib-container--large sib-container--vertical">
                 <form id="sib-form" method="POST" action="https://21b6fa3a.sibforms.com/serve/MUIFAEo3RLzN4UaPLVvdVSz1g5oB-EY6I7IqFqR_ymKtPAQu6JXNSmC2mx8kXOs2YLC6YNsqCFn6QU0HiKMmOthcSMnO-H2siq5TvBVvBFrvy1R5mWj5jeZ-Z8IogLz8zmNHbFKF8FqdcKnV2yo2RbrIHgczKJkeLQAqboJVgI9Q3vNLuWbesiWN34j3c02Ma0Hp5RKEUCkRbTzs" data-type="subscription">
-                  <div style={{padding: '8px 0'}}>
-                    <div className="sib-form-block" style={{fontSize: '2rem', textAlign: 'center', fontWeight: 700}}>
-                      <p>Newsletter</p>
+                  <div style={{padding: '4px 0'}}>
+                    <div className="sib-form-block" style={{fontSize: '2rem', textAlign: 'center', fontWeight: 700, marginBottom: '0.25rem'}}>
+                      <p style={{margin: 0}}>Join the Waitlist</p>
                     </div>
                   </div>
-                  <div style={{padding: '8px 0'}}>
+                  <div style={{padding: '4px 0', marginBottom: '0.5rem'}}>
                     <div className="sib-form-block" style={{fontSize: '1rem', textAlign: 'center'}}>
                       <div className="sib-text-form-block">
-                        <p>Subscribe to our newsletter to stay up to date.</p>
+                        <p style={{margin: 0, lineHeight: '1.5'}}>Be among the first 100 builders.<br />Get early access and exclusive founding benefits.</p>
                       </div>
                     </div>
                   </div>
-                  <div style={{padding: '8px 0'}}>
+                  <div style={{padding: '4px 0'}}>
                     <div className="sib-input sib-form-block">
                       <div className="form__entry entry_block">
                         <div className="form__label-row">
@@ -263,13 +263,13 @@ export default function EmailSignup() {
                       </div>
                     </div>
                   </div>
-                  <div style={{padding: '8px 0'}}>
+                  <div style={{padding: '4px 0'}}>
                     <div
                       className="g-recaptcha-v3"
                       data-sitekey="6LfEGuorAAAAAElSIgvmY-D3MxOwpqJ0erYswGnh"
                     ></div>
                   </div>
-                  <div style={{padding: '8px 0'}}>
+                  <div style={{padding: '4px 0'}}>
                     <div className="sib-form-block">
                       <button
                         className="sib-form-block__button sib-form-block__button-with-loader"
