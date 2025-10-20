@@ -1,4 +1,4 @@
-import { Zap, Code2, Users } from 'lucide-react';
+import { Wrench, Rocket, Flame } from 'lucide-react';
 import LiquidEther from './components/LiquidEther';
 import GlassHeader from './components/GlassHeader';
 import EmailSignup from './components/EmailSignup';
@@ -42,24 +42,8 @@ function App() {
         </section>
 
         <section className="py-24 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <FeatureCard
-                icon={Zap}
-                title="Ship Fast"
-                description="Build and launch in 2 hours."
-              />
-              <FeatureCard
-                icon={Code2}
-                title="No Code"
-                description="From idea to live tool instantly."
-              />
-              <FeatureCard
-                icon={Users}
-                title="Community"
-                description="Cool heads. Warm hearts. Build together."
-              />
-            </div>
+          <div className="max-w-6xl mx-auto flex justify-center">
+            <FeatureCard />
           </div>
         </section>
 
