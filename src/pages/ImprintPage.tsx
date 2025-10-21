@@ -13,7 +13,7 @@ export default function ImprintPage() {
                 <div className="space-y-6 text-white/80 leading-relaxed">
                   <section>
                     <p>
-                      ebx Network<br />
+                      Futurenaut<br />
                       Suite 5423<br />
                       32 Patty Blvd<br />
                       Wellington<br />
@@ -25,7 +25,7 @@ export default function ImprintPage() {
                   <section>
                     <h2 className="text-2xl font-semibold text-white mb-3">Contact</h2>
                     <p>
-                      Email: <a href="mailto:contact@eblogx.com" className="text-white hover:underline">contact@eblogx.com</a>
+                      Email: <a href="mailto:futurenautco@gmmail.com" className="text-white hover:underline">Email</a>
                     </p>
                   </section>
 
