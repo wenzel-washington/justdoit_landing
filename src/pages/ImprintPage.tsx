@@ -12,27 +12,27 @@ export default function ImprintPage() {
 
                 <div className="space-y-6 text-white/80 leading-relaxed">
                   <section>
-                    <h2 className="text-2xl font-semibold text-white mb-3">Information according to § 5 TMG</h2>
                     <p>
-                      [Company Name]<br />
-                      [Street Address]<br />
-                      [Postal Code, City]<br />
-                      [Country]
+                      ebx Network<br />
+                      Suite 5423<br />
+                      32 Patty Blvd<br />
+                      Wellington<br />
+                      Wellington 6037<br />
+                      New Zealand
                     </p>
                   </section>
 
                   <section>
                     <h2 className="text-2xl font-semibold text-white mb-3">Contact</h2>
                     <p>
-                      Email: <a href="mailto:futurenautco@gmail.com" className="text-white hover:underline">futurenautco@gmail.com</a>
+                      Email: <a href="mailto:contact@eblogx.com" className="text-white hover:underline">contact@eblogx.com</a>
                     </p>
                   </section>
 
                   <section>
                     <h2 className="text-2xl font-semibold text-white mb-3">Person responsible for content</h2>
                     <p>
-                      [Name]<br />
-                      [Address]
+                      See above.
                     </p>
                   </section>
 
