@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-6">
                 <a
-                  href="https://x.com"
+                  href="https://x.com/thisiswenzel"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors duration-200"
@@ -25,7 +25,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/wenzel-washington"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors duration-200"
