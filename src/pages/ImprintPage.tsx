@@ -25,7 +25,7 @@ export default function ImprintPage() {
                   <section>
                     <h2 className="text-2xl font-semibold text-white mb-3">Contact</h2>
                     <p>
-                      Email: <a href="mailto:futurenautco@gmmail.com" className="text-white hover:underline">Email</a>
+                      Email: <a href="mailto:futurenautco@gmmail.com" className="text-white hover:underline">futurenautco@gmmail.com</a>
                     </p>
                   </section>
 
