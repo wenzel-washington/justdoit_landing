@@ -13,7 +13,7 @@ export default function ImprintPage() {
                 <div className="space-y-6 text-white/80 leading-relaxed">
                   <section>
                     <p>
-                      Futurenaut<br />
+                      JustBuildit<br />
                       Suite 5423<br />
                       32 Patty Blvd<br />
                       Wellington<br />
