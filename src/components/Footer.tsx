@@ -35,12 +35,12 @@ export default function Footer() {
                 </a>
               </div>
               <div className="flex items-center gap-4 text-sm text-white/70">
-                <a href="#" className="hover:text-white transition-colors duration-200">
+                <a href="mailto:futurenautco@gmail.com" className="hover:text-white transition-colors duration-200">
                   contact
                 </a>
                 <span className="text-white/30">/</span>
-                <a href="#" className="hover:text-white transition-colors duration-200">
-                  terms of use
+                <a href="/imprint" className="hover:text-white transition-colors duration-200">
+                  imprint
                 </a>
               </div>
             </div>
